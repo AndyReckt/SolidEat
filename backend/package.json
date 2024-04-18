@@ -1,0 +1,14 @@
+{
+  "name": "solideat-backend",
+  "version": "1.0.0",
+  "description": "Backend for our solideat app",
+  "main": "src/index.ts",
+  "repository": "https://github.com/andyreckt/solideat",
+  "author": "AndyReckt, Ghoostyy, Christ7785",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express.js": "^1.0.0",
+    "types": "^0.1.1"
+  }
+}
