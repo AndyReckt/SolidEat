@@ -59,7 +59,7 @@ export function configure(app: Express) {
             let token = jwt.sign(
                 { email: user.email, id: usermodel._id, name: user.name },
                 secret,
-                { expiresIn: "6h", algorithm: "ES512" }
+                { expiresIn: "6h" }
             );
 
             return res.status(200).json({
@@ -81,7 +81,6 @@ export function configure(app: Express) {
         "/auth/register",
         jsonParser,
         async (req: Request, res: Response) => {
-            console.log("req.body => ", req.body);
             const { name, email, username, password } = req.body;
             let it = registerSchema.safeParse({
                 name,

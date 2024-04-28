@@ -5,7 +5,7 @@ export const login = async (
     message: string;
     token: string | undefined;
 }> => {
-    return await fetch(process.env.BACKEND_URL! + "/auth/login", {
+    return await fetch(process.env.NEXT_PUBLIC_BACKEND_URL! + "/auth/login", {
         headers: {
             "Content-Type": "application/json",
         },
