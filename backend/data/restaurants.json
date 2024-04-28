@@ -1,0 +1,338 @@
+[
+    {
+        "code": "75014",
+        "name": "BEAUNIER",
+        "address": "43, RUE BEAUNIER",
+        "city": "PARIS",
+        "location": { "lon": 2.327765, "lat": 48.824459 },
+        "type": "E"
+    },
+    {
+        "code": "75005",
+        "name": "MOUFFETARD",
+        "address": "20, RUE ORTOLAN",
+        "city": "PARIS",
+        "location": { "lon": 2.349667, "lat": 48.843234 },
+        "type": "E"
+    },
+    {
+        "code": "75008",
+        "name": "MARCHE DE L'EUROPE",
+        "address": "11, RUE MALLEVILLE",
+        "city": "PARIS",
+        "location": { "lon": 2.313452, "lat": 48.877284 },
+        "type": "S"
+    },
+    {
+        "code": "75015",
+        "name": "LA QUINTINIE",
+        "address": "18, RUE BARGUE",
+        "city": "PARIS",
+        "location": { "lon": 2.30718, "lat": 48.839301 },
+        "type": "E"
+    },
+    {
+        "code": "75003",
+        "name": "AU MAIRE",
+        "address": "2, RUE AU MAIRE",
+        "city": "PARIS",
+        "location": { "lon": 2.357714, "lat": 48.864445 },
+        "type": "E"
+    },
+    {
+        "code": "75018",
+        "name": "JOSEPH DE MAISTRE",
+        "address": "88, RUE JOSEPH DE MAISTRE",
+        "city": "PARIS",
+        "location": { "lon": 2.330458, "lat": 48.89289 },
+        "type": "E"
+    },
+    {
+        "code": "75002",
+        "name": "SAINT-SAUVEUR",
+        "address": "8, RUE SAINT-SAUVEUR",
+        "city": "PARIS",
+        "location": { "lon": 2.349476, "lat": 48.865929 },
+        "type": "E"
+    },
+    {
+        "code": "75002",
+        "name": "GRAMONT",
+        "address": "28, RUE GRAMONT",
+        "city": "PARIS",
+        "location": { "lon": 2.33703, "lat": 48.870961 },
+        "type": "E"
+    },
+    {
+        "code": "75013",
+        "name": "TOLBIAC",
+        "address": "166, RUE DE TOLBIAC",
+        "city": "PARIS",
+        "location": { "lon": 2.352555, "lat": 48.826031 },
+        "type": "E"
+    },
+    {
+        "code": "75017",
+        "name": "EPINETTES",
+        "address": "51, RUE DES EPINETTES",
+        "city": "PARIS",
+        "location": { "lon": 2.323344, "lat": 48.896416 },
+        "type": "S"
+    },
+    {
+        "code": "75010",
+        "name": "VERDUN",
+        "address": "14, AVENUE DE VERDUN",
+        "city": "PARIS",
+        "location": { "lon": 2.361942, "lat": 48.876266 },
+        "type": "E"
+    },
+    {
+        "code": "75004",
+        "name": "AVE MARIA",
+        "address": "4, RUE DE L'AVE MARIA",
+        "city": "PARIS",
+        "location": { "lon": 2.360534, "lat": 48.852746 },
+        "type": "E"
+    },
+    {
+        "code": "75014",
+        "name": "ARBUSTES",
+        "address": "9, RUE DES ARBUSTES",
+        "city": "PARIS",
+        "location": { "lon": 2.309284, "lat": 48.828431 },
+        "type": "E"
+    },
+    {
+        "code": "75018",
+        "name": "CAULAINCOURT",
+        "address": "102, RUE DE CAULAINCOURT",
+        "city": "PARIS",
+        "location": { "lon": 2.339419, "lat": 48.889552 },
+        "type": "E"
+    },
+    {
+        "code": "75012",
+        "name": "BRECHE AUX LOUPS",
+        "address": "32, RUE DE LA BRECHE AUX LOUPS",
+        "city": "PARIS",
+        "location": { "lon": 2.394822, "lat": 48.837994 },
+        "type": "E"
+    },
+    {
+        "code": "75003",
+        "name": "MADELEINE BEJART",
+        "address": "4, RUE DE LA PERLE",
+        "city": "PARIS",
+        "location": { "lon": 2.3619310000000002, "lat": 48.859373 },
+        "type": "E"
+    },
+    {
+        "code": "75009",
+        "name": "NAVARIN",
+        "address": "12, RUE DE NAVARIN",
+        "city": "PARIS",
+        "location": { "lon": 2.338996, "lat": 48.879688 },
+        "type": "E"
+    },
+    {
+        "code": "75013",
+        "name": "ARAGO",
+        "address": "49, BOULEVARD ARAGO",
+        "city": "PARIS",
+        "location": { "lon": 2.345384, "lat": 48.834785 },
+        "type": "E"
+    },
+    {
+        "code": "75012",
+        "name": "SAINT-ELOI",
+        "address": "10, RUE EUGENIE EBOUE",
+        "city": "PARIS",
+        "location": { "lon": 2.38601, "lat": 48.845593 },
+        "type": "S"
+    },
+    {
+        "code": "75016",
+        "name": "JOUVENET",
+        "address": "23, RUE JOUVENET",
+        "city": "PARIS",
+        "location": { "lon": 2.265355, "lat": 48.842528 },
+        "type": "E"
+    },
+    {
+        "code": "75012",
+        "name": "TOURELLES",
+        "address": "22, RUE DU CHAFFAULT",
+        "city": "PARIS",
+        "location": { "lon": 2.415046, "lat": 48.845159 },
+        "type": "E"
+    },
+    {
+        "code": "75004",
+        "name": "AU PETIT REMOULEUR",
+        "address": "1, RUE DE FOURCY",
+        "city": "PARIS",
+        "location": { "lon": 2.358803, "lat": 48.854622 },
+        "type": "E"
+    },
+    {
+        "code": "75018",
+        "name": "CLIGNANCOURT",
+        "address": "14-16, SQUARE CLIGNANCOURT",
+        "city": "PARIS",
+        "location": { "lon": 2.347233, "lat": 48.893493 },
+        "type": "E"
+    },
+    {
+        "code": "75006",
+        "name": "ANDRE MALRAUX",
+        "address": "112, RUE DE RENNES",
+        "city": "PARIS",
+        "location": { "lon": 2.327529, "lat": 48.847869 },
+        "type": "E"
+    },
+    {
+        "code": "75020",
+        "name": "SAINTS-SIMONIENS",
+        "address": "18, RUE DE LA DUEE",
+        "city": "PARIS",
+        "location": { "lon": 2.396821, "lat": 48.871268 },
+        "type": "E"
+    },
+    {
+        "code": "75017",
+        "name": "TERNES",
+        "address": "28, RUE BAYEN",
+        "city": "PARIS",
+        "location": { "lon": 2.293319, "lat": 48.880881 },
+        "type": "E"
+    },
+    {
+        "code": "75011",
+        "name": "CHANZY",
+        "address": "6, RUE DE CHANZY",
+        "city": "PARIS",
+        "location": { "lon": 2.3825250000000002, "lat": 48.852411 },
+        "type": "S"
+    },
+    {
+        "code": "75014",
+        "name": "LES ARTISTES",
+        "address": "55-57, RUE DU MONTPARNASSE",
+        "city": "PARIS",
+        "location": { "lon": 2.325587, "lat": 48.841966 },
+        "type": "S"
+    },
+    {
+        "code": "75005",
+        "name": "BOUTEBRIE",
+        "address": "15, RUE DE LA PARCHEMINERIE",
+        "city": "PARIS",
+        "location": { "lon": 2.344985, "lat": 48.851629 },
+        "type": "S"
+    },
+    {
+        "code": "75019",
+        "name": "TANGER",
+        "address": "32, RUE DE TANGER",
+        "city": "PARIS",
+        "location": { "lon": 2.371022, "lat": 48.888726 },
+        "type": "E"
+    },
+    {
+        "code": "75009",
+        "name": "TOUR DES DAMES",
+        "address": "8, RUE DE LA TOUR DES DAMES",
+        "city": "paris",
+        "location": { "lon": 2.33344, "lat": 48.877809 },
+        "type": "E"
+    },
+    {
+        "code": "75007",
+        "name": "LEPRINCE",
+        "address": "109, RUE SAINT-DOMINIQUE",
+        "city": "PARIS",
+        "location": { "lon": 2.305783, "lat": 48.859301 },
+        "type": "E"
+    },
+    {
+        "code": "75020",
+        "name": "SAINT-BLAISE",
+        "address": "2, RUE DU CLOS",
+        "city": "PARIS",
+        "location": { "lon": 2.4061019999999997, "lat": 48.85636 },
+        "type": "E"
+    },
+    {
+        "code": "75014",
+        "name": "MAINE",
+        "address": "203, AVENUE DU MAINE",
+        "city": "PARIS",
+        "location": { "lon": 2.326551, "lat": 48.829248 },
+        "type": "E"
+    },
+    {
+        "code": "75015",
+        "name": "OSCAR ROTY",
+        "address": "107, RUE DE LOURMEL",
+        "city": "PARIS",
+        "location": { "lon": 2.286317, "lat": 48.842921 },
+        "type": "E"
+    },
+    {
+        "code": "75011",
+        "name": "OMER TALON",
+        "address": "33-37, RUE MERLIN",
+        "city": "PARIS",
+        "location": { "lon": 2.38454, "lat": 48.861868 },
+        "type": "E"
+    },
+    {
+        "code": "75018",
+        "name": "L'OASIS",
+        "address": "15, RUE DE LAGHOUAT",
+        "city": "PARIS",
+        "location": { "lon": 2.354807, "lat": 48.887842 },
+        "type": "E"
+    },
+    {
+        "code": "75005",
+        "name": "PORT ROYAL",
+        "address": "88, BOULEVARD DE PORT ROYAL",
+        "city": "PARIS",
+        "location": { "lon": 2.339248, "lat": 48.839183 },
+        "type": "E"
+    },
+    {
+        "code": "75015",
+        "name": "VAUGELAS",
+        "address": "4, RUE VAUGELAS",
+        "city": "PARIS",
+        "location": { "lon": 2.294917, "lat": 48.834439 },
+        "type": "E"
+    },
+    {
+        "code": "75005",
+        "name": "JARDIN DES PLANTES",
+        "address": "18-22, RUE POLIVEAU",
+        "city": "PARIS",
+        "location": { "lon": 2.359412, "lat": 48.840346 },
+        "type": "E"
+    },
+    {
+        "code": "75013",
+        "name": "CHARCOT",
+        "address": "15, RUE CHARCOT",
+        "city": "PARIS",
+        "location": { "lon": 2.371272, "lat": 48.830738 },
+        "type": "E"
+    },
+    {
+        "code": "75010",
+        "name": "CLAUDE VELLEFAUX",
+        "address": "66, AVENUE CLAUDE VELLEFAUX",
+        "city": "PARIS",
+        "location": { "lon": 2.370357, "lat": 48.876954 },
+        "type": "S"
+    }
+]

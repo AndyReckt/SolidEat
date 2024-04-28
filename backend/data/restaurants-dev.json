@@ -1,0 +1,26 @@
+[
+    {
+        "code": "75014",
+        "name": "BEAUNIER",
+        "address": "43, RUE BEAUNIER",
+        "city": "PARIS",
+        "location": { "lon": 2.327765, "lat": 48.824459 },
+        "type": "E"
+    },
+    {
+        "code": "75005",
+        "name": "MOUFFETARD",
+        "address": "20, RUE ORTOLAN",
+        "city": "PARIS",
+        "location": { "lon": 2.349667, "lat": 48.843234 },
+        "type": "E"
+    },
+    {
+        "code": "75008",
+        "name": "MARCHE DE L'EUROPE",
+        "address": "11, RUE MALLEVILLE",
+        "city": "PARIS",
+        "location": { "lon": 2.313452, "lat": 48.877284 },
+        "type": "S"
+    }
+]
