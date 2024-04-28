@@ -1,6 +1,6 @@
 "use client";
 
-import { login_user } from "./services";
+import { login } from "./login.server";
 import Head from "next/head";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,12 +9,14 @@ const Cookies = require("js-cookie");
 import Router from "next/router";
 import Link from "next/link";
 
+import Image from "next/image";
+
 export default function Home() {
     const [formData, setFormData] = useState({ email: "", password: "" });
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const res = await login_user(formData);
+        const res = await login(formData);
         if (res.success) {
             toast.success(res.message);
             Cookies.set("token", res.token);
@@ -42,6 +44,18 @@ export default function Home() {
             </Head>
             <section className="bg-indigo-700 text-center text-indigo-600">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                    <div className="relative mb-4 bg-white p-1 rounded-full">
+                        <div className="rounded-full overflow-hidden border-4 border-white w-24 h-24 flex items-center justify-center">
+                            <Image
+                                src={"/logo.svg"}
+                                width={64}
+                                height={64}
+                                alt="Logo"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-indigo-800 dark:border-indigo-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-indigo-600 md:text-2xl dark:text-white">
