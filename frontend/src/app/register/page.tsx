@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -16,6 +17,7 @@ export default function Register() {
         email: "",
         username: "",
         password: "",
+        usertype: "",
     });
 
     const handleSubmit = async (e: any) => {
@@ -147,8 +149,22 @@ export default function Register() {
                                         className="block mb-2 text-sm font-medium text-gray-950 ">
                                         Vous êtes ?
                                     </label>
-                                    <select className="select select-bordered w-full bg-red-50 border border-red-300 text-gray-950 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5">
-                                        <option disabled selected>Choisissez</option>
+                                    <select
+                                        className="select select-bordered bg-red-50 border border-red-300 text-gray-950 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
+                                        onChange={(e) => {
+                                            const type =
+                                                e.target.value ==
+                                                "Un Restaurateur"
+                                                    ? "restaurant"
+                                                    : "user";
+                                            setFormData({
+                                                ...formData,
+                                                usertype: type,
+                                            });
+                                        }}>
+                                        <option disabled selected>
+                                            Choisissez
+                                        </option>
                                         <option>Un Utilisateur</option>
                                         <option>Un Restaurateur</option>
                                     </select>
@@ -160,7 +176,7 @@ export default function Register() {
                                     S'inscrire
                                 </button>
                                 <p className="text-sm font-light text-gray-950 ">
-                                    Vous avez déja un compte ? {" "}
+                                    Vous avez déja un compte ?{" "}
                                     <Link
                                         href="/"
                                         className="font-medium text-gray-950 hover:underline ">
