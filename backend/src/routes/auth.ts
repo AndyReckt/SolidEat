@@ -3,7 +3,7 @@ import { Express, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
 import bodyParser from "body-parser";
-import { UserModel } from "../schemas/models";
+import { UserModel, UserRole } from "../schemas/models";
 import { mongoUserToUser } from "../util/utils";
 const jsonParser = bodyParser.json();
 
@@ -17,6 +17,7 @@ const registerSchema = z.object({
     email: z.string().email(),
     username: z.string(),
     password: z.string().min(8),
+    usertype: z.nativeEnum(UserRole),
 });
 
 export function configure(app: Express) {
@@ -81,12 +82,13 @@ export function configure(app: Express) {
         "/auth/register",
         jsonParser,
         async (req: Request, res: Response) => {
-            const { name, email, username, password } = req.body;
+            const { name, email, username, password, usertype } = req.body;
             let it = registerSchema.safeParse({
                 name,
                 email,
                 username,
                 password,
+                usertype,
             });
 
             if (!it.success) {
@@ -124,7 +126,7 @@ export function configure(app: Express) {
                     email: data.email,
                     username: data.username,
                     password: data.password,
-                    role: "user", //todo: to change using a dropdown menu in the frontend
+                    role: data.usertype, //todo: to change using a dropdown menu in the frontend
                 });
 
                 await user.save();
