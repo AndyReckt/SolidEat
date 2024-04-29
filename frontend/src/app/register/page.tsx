@@ -147,7 +147,7 @@ export default function Register() {
                                         className="block mb-2 text-sm font-medium text-gray-950 ">
                                         Vous êtes ?
                                     </label>
-                                    <select className="select select-bordered w-full bg-red-50 border border-red-300 text-gray-950 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5">
+                                    <select className="select select-bordered bg-red-50 border border-red-300 text-gray-950 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5">
                                         <option disabled selected>Choisissez</option>
                                         <option>Un Utilisateur</option>
                                         <option>Un Restaurateur</option>
