@@ -51,7 +51,7 @@ export default function Register() {
                     <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-950 md:text-2xl ">
-                                Create an Account
+                                Créer un compte
                             </h1>
                             <form
                                 onSubmit={handleSubmit}
@@ -61,7 +61,7 @@ export default function Register() {
                                     <label
                                         htmlFor="name"
                                         className="block mb-2 text-sm font-medium text-gray-950">
-                                        Your Name
+                                        Nom
                                     </label>
                                     <input
                                         onChange={(e) =>
@@ -82,7 +82,7 @@ export default function Register() {
                                     <label
                                         htmlFor="username"
                                         className="block mb-2 text-sm font-medium text-gray-950 ">
-                                        Username
+                                        Nom d'utilisateur
                                     </label>
                                     <input
                                         onChange={(e) =>
@@ -103,7 +103,7 @@ export default function Register() {
                                     <label
                                         htmlFor="email"
                                         className="block mb-2 text-sm font-medium text-gray-950 ">
-                                        Your email
+                                        Votre email
                                     </label>
                                     <input
                                         onChange={(e) =>
@@ -124,7 +124,7 @@ export default function Register() {
                                     <label
                                         htmlFor="password"
                                         className="block mb-2 text-sm font-medium text-gray-950 ">
-                                        Password
+                                        Mot de passe
                                     </label>
                                     <input
                                         onChange={(e) =>
@@ -141,18 +141,30 @@ export default function Register() {
                                         required={true}
                                     />
                                 </div>
+                                <div className="text-left">
+                                    <label
+                                        htmlFor="usertype"
+                                        className="block mb-2 text-sm font-medium text-gray-950 ">
+                                        Vous êtes ?
+                                    </label>
+                                    <select className="select select-bordered w-full bg-red-50 border border-red-300 text-gray-950 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5">
+                                        <option disabled selected>Choisissez</option>
+                                        <option>Un Utilisateur</option>
+                                        <option>Un Restaurateur</option>
+                                    </select>
+                                </div>
 
                                 <button
                                     type="submit"
                                     className="w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                    Sign Up
+                                    S'inscrire
                                 </button>
                                 <p className="text-sm font-light text-gray-950 ">
-                                    Already have an account{" "}
+                                    Vous avez déja un compte ? {" "}
                                     <Link
                                         href="/"
                                         className="font-medium text-gray-950 hover:underline ">
-                                        Sign In
+                                        Connectez-vous
                                     </Link>
                                 </p>
                             </form>

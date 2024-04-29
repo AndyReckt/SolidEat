@@ -61,7 +61,7 @@ export default function Home() {
                     <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-950 md:text-2xl ">
-                                Log into your account
+                                Connectez vous à votre compte
                             </h1>
                             <form
                                 onSubmit={handleSubmit}
@@ -71,7 +71,7 @@ export default function Home() {
                                     <label
                                         htmlFor="email"
                                         className="block mb-2 text-sm font-medium text-gray-950">
-                                        Username or email
+                                        Nom d'utilisateur ou Email
                                     </label>
                                     <input
                                         onChange={(e) =>
@@ -92,7 +92,7 @@ export default function Home() {
                                     <label
                                         htmlFor="password"
                                         className="block mb-2 text-sm font-medium text-gray-950 ">
-                                        Password
+                                        Mot de passe
                                     </label>
                                     <input
                                         onChange={(e) =>
@@ -124,27 +124,27 @@ export default function Home() {
                                             <label
                                                 htmlFor="remember"
                                                 className="text-gray-950 ">
-                                                Remember me
+                                                Se souvenir de moi
                                             </label>
                                         </div>
                                     </div>
                                     <a
                                         href="#"
                                         className="text-sm font-medium text-gray-950 hover:underline ">
-                                        Forgot password?
+                                        Mot de passe oublié ?
                                     </a>
                                 </div>
                                 <button
                                     type="submit"
                                     className="w-full text-white bg-red-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                    Sign in
+                                    Se connecter
                                 </button>
                                 <p className="text-sm font-light text-gray-950 ">
-                                    Don’t have an account yet?{" "}
+                                    Vous n'avez pas encore de compte ? {" "}
                                     <Link
                                         href="/register"
                                         className="font-medium text-gray-950 hover:underline ">
-                                        Sign up
+                                        S'inscrire
                                     </Link>
                                 </p>
                             </form>
