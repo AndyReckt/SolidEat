@@ -105,7 +105,17 @@ export function configure(app: Express) {
                 if (usermodel) {
                     return res.status(401).json({
                         success: false,
-                        message: "User already exists, please login",
+                        message: "Email already exists, please login",
+                    });
+                }
+
+                let usernamemodel = await UserModel.findOne({
+                    username: data.username,
+                }).exec();
+                if (usernamemodel) {
+                    return res.status(401).json({
+                        success: false,
+                        message: "Username already exists, please login",
                     });
                 }
 
@@ -114,6 +124,7 @@ export function configure(app: Express) {
                     email: data.email,
                     username: data.username,
                     password: data.password,
+                    role: "user", //todo: to change using a dropdown menu in the frontend
                 });
 
                 await user.save();

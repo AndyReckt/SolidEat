@@ -7,7 +7,7 @@ export const LocationSchema = z.object({
 
 export type Location = z.infer<typeof LocationSchema>;
 
-enum RestaurantType {
+export enum RestaurantType {
     Emerald = "E",
     Solidarity = "S",
 }
