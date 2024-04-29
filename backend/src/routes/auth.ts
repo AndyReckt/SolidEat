@@ -8,7 +8,7 @@ import { mongoUserToUser } from "../util/utils";
 const jsonParser = bodyParser.json();
 
 const loginSchema = z.object({
-    email: z.string().email(),
+    email: z.string(),
     password: z.string().min(8),
 });
 
