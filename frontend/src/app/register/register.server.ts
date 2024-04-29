@@ -16,7 +16,7 @@ export const register = async (
         }
     )
         .then((res) => {
-            if (res.ok) {
+            if (res.ok || res.status == 401 || res.status == 500) {
                 return res.json();
             } else
                 throw new Error(

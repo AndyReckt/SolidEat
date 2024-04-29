@@ -40,7 +40,7 @@ export function configure(app: Express) {
             if (!usermodel) {
                 return res.status(401).json({
                     success: false,
-                    message: "Account not Found, PLease Sign Up",
+                    message: "Account not found, please sign up",
                 });
             }
 
@@ -64,7 +64,7 @@ export function configure(app: Express) {
 
             return res.status(200).json({
                 success: true,
-                message: "Login Successfull",
+                message: "Login successful",
                 token: token,
             });
         } catch (error) {
@@ -105,7 +105,7 @@ export function configure(app: Express) {
                 if (usermodel) {
                     return res.status(401).json({
                         success: false,
-                        message: "User already exists, Please Login",
+                        message: "User already exists, please login",
                     });
                 }
 

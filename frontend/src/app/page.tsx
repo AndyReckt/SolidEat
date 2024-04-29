@@ -80,7 +80,7 @@ export default function Home() {
                                                 email: e.target.value,
                                             })
                                         }
-                                        type="email"
+                                        type="text"
                                         name="email"
                                         id="email"
                                         className="bg-red-50 border border-red-300 text-gray-950 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "

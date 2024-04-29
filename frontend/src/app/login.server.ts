@@ -14,8 +14,9 @@ export const login = async (
         cache: "no-cache",
     })
         .then((res) => {
-            if (res.ok) return res.json();
-            else
+            if (res.ok || res.status == 401 || res.status == 500) {
+                return res.json();
+            } else
                 throw new Error(
                     `Request to get data returned code ${res.status}`
                 );
