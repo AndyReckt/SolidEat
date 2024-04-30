@@ -53,20 +53,21 @@ const ReservationModal: React.FC<ReservationModalProps> = ({ onClose, onSubmit }
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 gap-4">
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nom</label>
-                            <input type="text" id="name" name="name" value={reservationInfo.name} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md" required />
+                            <input type="text" id="name" name="name" value={reservationInfo.name} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300" required />
 
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" name="email" value={reservationInfo.email} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md" required />
+                            <input type="email" id="email" name="email" value={reservationInfo.email} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300" required />
 
                             <label htmlFor="date" className="block text-sm font-medium text-gray-700">Date</label>
-                            <input type="date" id="date" name="date" value={reservationInfo.date} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md" required />
+                            <input type="date" id="date" name="date" value={reservationInfo.date} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300" required />
 
                             <label htmlFor="time" className="block text-sm font-medium text-gray-700">Heure</label>
-                            <input type="time" id="time" name="time" value={reservationInfo.time} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md" required />
+                            <input type="time" id="time" name="time" value={reservationInfo.time} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300" required />
 
                             <label htmlFor="guests" className="block text-sm font-medium text-gray-700">Nombre d'invités</label>
-                            <input type="number" id="guests" name="guests" value={reservationInfo.guests} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md" required />
+                            <input type="number" id="guests" name="guests" value={reservationInfo.guests} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300" required />
                         </div>
+
                         <div className="mt-6 flex justify-end">
                             <button type="submit" className="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white">Réserver</button>
                             <button onClick={onClose} type="button" className="btn btn-secondary bg-red-500 hover:bg-red-700 text-white ml-3">Fermer</button>
