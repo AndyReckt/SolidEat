@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { login } from "./login.server";
@@ -22,9 +23,10 @@ export default function Home() {
         if (res.success) {
             toast.success(res.message);
             Cookies.set("token", res.token);
+            Cookies.set("user", JSON.stringify(res.user));
             setTimeout(() => {
                 router.push("/home");
-            }, 1000);
+            }, 2000);
         } else {
             toast.error(res.message);
         }
@@ -140,7 +142,7 @@ export default function Home() {
                                     Se connecter
                                 </button>
                                 <p className="text-sm font-light text-gray-950 ">
-                                    Vous n'avez pas encore de compte ? {" "}
+                                    Vous n'avez pas encore de compte ?{" "}
                                     <Link
                                         href="/register"
                                         className="font-medium text-gray-950 hover:underline ">

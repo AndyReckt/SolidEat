@@ -1,9 +1,12 @@
+import { MinimizedUser } from "@/_utils/_schemas";
+
 export const login = async (
     formData: any
 ): Promise<{
     success: boolean;
     message: string;
     token: string | undefined;
+    user: MinimizedUser | undefined;
 }> => {
     return await fetch(process.env.NEXT_PUBLIC_BACKEND_URL! + "/auth/login", {
         headers: {

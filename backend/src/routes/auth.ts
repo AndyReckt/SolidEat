@@ -67,6 +67,12 @@ export function configure(app: Express) {
                 success: true,
                 message: "Login successful",
                 token: token,
+                user: {
+                    name: user.name,
+                    username: user.username,
+                    role: user.role,
+                    email: user.email,
+                },
             });
         } catch (error) {
             console.log("Error in login_user (server) => ", error);
