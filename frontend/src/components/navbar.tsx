@@ -1,3 +1,4 @@
+"use client";
 const Cookies = require("js-cookie");
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
@@ -12,9 +13,11 @@ const Navbar = () => {
     }, [token, router]);
 
     const logout = () => {
-        Cookies.remove("user");
-        Cookies.remove("token");
         router.push("/");
+        setTimeout(() => {
+            Cookies.remove("token");
+            Cookies.remove("user");
+        }, 250);
     };
     return (
         <div className="navbar bg-white justify-end px-2">

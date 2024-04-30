@@ -3,7 +3,7 @@
 
 import { login } from "./login.server";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Cookies = require("js-cookie");
@@ -12,10 +12,16 @@ import Link from "next/link";
 
 import Image from "next/image";
 import { hash } from "@/_utils/_hashutils";
+import { set } from "zod";
 
 export default function Home() {
     const [formData, setFormData] = useState({ email: "", password: "" });
     const router = useRouter();
+
+    const tokened = Cookies.get("token");
+    if (tokened) {
+        router.push("/home");
+    }
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();

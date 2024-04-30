@@ -6,42 +6,43 @@ import "react-toastify/dist/ReactToastify.css";
 const Cookies = require("js-cookie");
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/navbar";
-import { MinimizedUser } from "@/_utils/_schemas";
+import { MinimizedUser, Restaurant, RestaurantType } from "@/_utils/_schemas";
 import { gravatar } from "@/_utils/_gravatar";
 import Image from "next/image";
+import { restaurants } from "./home.server";
+import { toast } from "react-toastify";
+import RestaurantCard from "@/components/restaurantcard";
 
 const Home: React.FC = () => {
     const token = Cookies.get("token");
-    const user = JSON.parse(Cookies.get("user")) as MinimizedUser;
     const router = useRouter();
     let [avatar, setAvatar] = useState("");
     let [name, setName] = useState("");
+    let [allrestaurants, setAllrestaurants] = useState([] as Restaurant[]);
 
     useEffect(() => {
-        if (!token || !user) {
+        if (!token) {
             router.push("/");
             return;
         }
+        const user = JSON.parse(Cookies.get("user")) as MinimizedUser;
+
         setAvatar(gravatar(user.email));
         setName(user.name);
-    }, [token, user, router]);
 
-    const logout = () => {
-        Cookies.remove("token");
-        Cookies.remove("user");
-        router.push("/");
-    };
-
-    const reserved = () => {
-        router.push('/detail');
-    };
-
+        restaurants()
+            .then((res) => {
+                setAllrestaurants(res);
+            })
+            .catch((err) => {
+                toast.error(err.message);
+            });
+    }, [token, router]);
 
     return (
         <div className="flex flex-col h-screen">
             <Navbar />
             <div className="flex-grow flex flex-col justify-center items-center text-black bg-white tracking-widest">
-                {/* Salut username requis + image photo de profil ? */}
                 <div className="card card-side bg-white">
                     <figure>
                         <Image
@@ -55,7 +56,6 @@ const Home: React.FC = () => {
                     <div className="card-body">
                         <p>Salut</p>
                         <p className="card-title">{name}</p>{" "}
-                        {/* Récupérer le nom de l'utilisateur */}
                     </div>
                 </div>
                 <div className="">
@@ -87,63 +87,9 @@ const Home: React.FC = () => {
                     Listes des restaurants
                 </p>
 
-                {/* Récupération des données du restaurant et les mettres dedans*/}
-                <div className="flex flex-col items-center space-y-4">
-                    <div className="card card-side bg-white shadow-xl">
-                        <figure>
-                            <Image src="" alt="Image" className="max-w-full" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Nom Restaurant</h2>{" "}
-                            {/* Récupérer le nom du restaurant */}
-                            <p>Adresse du restaurant</p>{" "}
-                            {/* Récupérer l'adresse du restaurant */}
-                            <p>Horaires d'ouverture</p>{" "}
-                            {/* Récupérer les horaires d'ouverture */}
-                            <p>Nombre de place réservé sur x</p>{" "}
-                            {/* Récupérer le nombre de place réservé */}
-                            <div className="card-actions justify-end">
-                                <button onClick={reserved} className="btn btn-primary">
-                                    Réservez
-                                </button>{" "}
-                                {/* Récupérer le bouton de réservation (a voir) */}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="card card-side bg-white shadow-xl">
-                        <figure>
-                            <Image src="" alt="Image" className="max-w-full" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Nom Restaurant</h2>
-                            <p>Adresse du restaurant</p>
-                            <p>Horaires d'ouverture</p>
-                            <p>Nombre de place réservé sur x</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">
-                                    Réservez
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card card-side bg-white shadow-xl">
-                        <figure>
-                            <Image src="" alt="Image" className="max-w-full" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Nom Restaurant</h2>
-                            <p>Adresse du restaurant</p>
-                            <p>Horaires d'ouverture</p>
-                            <p>Nombre de place réservé sur x</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">
-                                    Réservez
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {allrestaurants.map((restaurant) => (
+                    <RestaurantCard {...restaurant} key={restaurant.name} />
+                ))}
             </div>
         </div>
     );
