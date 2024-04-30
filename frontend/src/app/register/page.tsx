@@ -143,19 +143,6 @@ export default function Register() {
                                         required={true}
                                     />
                                 </div>
-                                <div className="text-left">
-                                    <label
-                                        htmlFor="usertype"
-                                        className="block mb-2 text-sm font-medium text-gray-950 ">
-                                        Vous êtes ?
-                                    </label>
-                                    <select className="select select-bordered bg-red-50 border border-red-300 text-gray-950 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5">
-                                        <option disabled selected>Choisissez</option>
-                                        <option>Un Utilisateur</option>
-                                        <option>Un Restaurateur</option>
-                                    </select>
-                                </div>
-
                                 <button
                                     type="submit"
                                     className="w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
