@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Navbar from "@/components/navbar";
+import { useRouter } from "next/navigation";
 import ReservationModal from "@/components/ReservationModal";
-import { MapPinIcon, HeartIcon } from '@heroicons/react/24/solid'
+import { MapPinIcon, HeartIcon, ArrowUturnLeftIcon } from '@heroicons/react/24/solid'
 
 const RestaurantDetailPage: React.FC = () => {
     const [restaurantImage, setRestaurantImage] = useState<string>("");
@@ -26,6 +26,11 @@ const RestaurantDetailPage: React.FC = () => {
             console.error("Error fetching random image:", error);
         }
     };
+    const router = useRouter();
+
+    const handleGoBack = () => {
+        router.push('/home');
+    };
 
     const handleLikeClick = () => {
         setIsLiked(!isLiked);
@@ -41,14 +46,14 @@ const RestaurantDetailPage: React.FC = () => {
 
     return (
         <div className="bg-gray-100 min-h-screen relative">
-            <Navbar />
-            <div className="container mx-auto relative">
 
+            <div className="container mx-auto relative">
                 <div className="mb-8 relative z-10">
                     <img src={restaurantImage} alt="Restaurant" className="w-full h-64 object-cover shadow-md" />
+                    <button onClick={handleGoBack} className="absolute top-0 left-0 mt-4 ml-4 bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded-full">
+                        <ArrowUturnLeftIcon className="h-6 w-6" />
+                    </button>
                 </div>
-
-
                 <div className="bg-white rounded-lg shadow-md p-8 relative z-10 mt-[-4rem] rounded-tl-2xl rounded-tr-2xl">
                     <h1 className="text-black text-3xl font-bold mb-4 text-center">Nom du Restaurant</h1>
                     <div className="flex justify-center items-center mb-4">

@@ -6,7 +6,6 @@ interface ReservationModalProps {
 }
 
 interface ReservationInfo {
-    name: string;
     email: string;
     date: string;
     time: string;
@@ -15,7 +14,6 @@ interface ReservationInfo {
 
 const ReservationModal: React.FC<ReservationModalProps> = ({ onClose, onSubmit }) => {
     const [reservationInfo, setReservationInfo] = React.useState<ReservationInfo>({
-        name: "",
         email: "",
         date: "",
         time: "",
@@ -52,9 +50,6 @@ const ReservationModal: React.FC<ReservationModalProps> = ({ onClose, onSubmit }
                     {/*Formulaire de réservation */}
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 gap-4">
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nom</label>
-                            <input type="text" id="name" name="name" value={reservationInfo.name} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300" required />
-
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
                             <input type="email" id="email" name="email" value={reservationInfo.email} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300" required />
 

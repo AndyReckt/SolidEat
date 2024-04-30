@@ -32,6 +32,11 @@ const Home: React.FC = () => {
         router.push("/");
     };
 
+    const reserved = () => {
+        router.push('/detail');
+    };
+
+
     return (
         <div className="flex flex-col h-screen">
             <Navbar />
@@ -98,7 +103,7 @@ const Home: React.FC = () => {
                             <p>Nombre de place réservé sur x</p>{" "}
                             {/* Récupérer le nombre de place réservé */}
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">
+                                <button onClick={reserved} className="btn btn-primary">
                                     Réservez
                                 </button>{" "}
                                 {/* Récupérer le bouton de réservation (a voir) */}
