@@ -14,8 +14,9 @@ import { set } from "zod";
 declare var google: any;
 
 const containerStyle = {
-    width: "800px",
+    width: "400px",
     height: "400px",
+    marginBottom: "20px",
 };
 
 export default function RestaurantDetailPage() {
@@ -144,6 +145,7 @@ export default function RestaurantDetailPage() {
                         />
                     </svg>
                 </label>
+                <div id="map" style={containerStyle}></div>
                 <div className="card card-side bg-white shadow-xl text-black">
                     <figure>
                         <Image src="" alt="img" className="max-w-full" />
@@ -159,7 +161,7 @@ export default function RestaurantDetailPage() {
                         {/* Récupérer le nombre de place réservé */}
                     </div>
                 </div>
-                <div id="map" style={containerStyle}></div>
+
             </div>
         </div>
     );

@@ -150,9 +150,8 @@ export default function RestaurantDetailPage() {
                         </p>
                         <button onClick={handleLikeClick} className="ml-4">
                             <HeartIcon
-                                className={`w-6 h-6 ${
-                                    isLiked ? "text-red-500" : "text-gray-600"
-                                }`}
+                                className={`w-6 h-6 ${isLiked ? "text-red-500" : "text-gray-600"
+                                    }`}
                             />
                         </button>
                     </div>
