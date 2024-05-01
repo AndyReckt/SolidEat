@@ -129,7 +129,7 @@ export default function RestaurantDetailPage() {
                 <div id="map" style={containerStyle}></div>
                 <div className="card card-side bg-white shadow-xl text-black">
                     <figure>
-                        <Image src="" alt="img" className="max-w-full" />
+                        <Image src="" alt="" className="max-w-full" />
                     </figure>
                     <div className="card-body">
                         <h2 className="card-title">{restaurant!.name}</h2>{" "}
