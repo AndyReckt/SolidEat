@@ -141,8 +141,11 @@ export default function RestaurantDetailPage() {
             <div>
                 <textarea
                     placeholder="Add your comment..."
-                    className="w-96 h-24 border border-gray-300 rounded-md p-2 mt-4 mx-auto block resize-none focus:outline-none focus:ring-2 bg-gray-100 focus:ring-blue-500"></textarea>
-                <button className="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white w-96 text-center mt-2 mx-auto block">
+                    className="w-96 h-24 border border-gray-300 rounded-md p-2 mt-4 mx-auto block resize-none focus:outline-none focus:ring-2 bg-gray-100 focus:ring-blue-500 text-black"
+                ></textarea>
+                <button
+                    className="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white w-96 text-center mt-2 mx-auto block"
+                >
                     Add Comment
                 </button>
             </div>
