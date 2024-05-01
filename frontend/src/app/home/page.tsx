@@ -16,9 +16,11 @@ import RestaurantCard from "@/components/restaurantcard";
 const Home: React.FC = () => {
     const token = Cookies.get("token");
     const router = useRouter();
-    let [avatar, setAvatar] = useState("");
-    let [name, setName] = useState("");
-    let [allrestaurants, setAllrestaurants] = useState([] as Restaurant[]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [avatar, setAvatar] = useState("");
+    const [name, setName] = useState("");
+    const [allrestaurants, setAllrestaurants] = useState([] as Restaurant[]);
+    const [filteredRestaurants, setFilteredRestaurants] = useState([] as Restaurant[]);
 
     useEffect(() => {
         if (!token) {
@@ -33,11 +35,24 @@ const Home: React.FC = () => {
         restaurants()
             .then((res) => {
                 setAllrestaurants(res);
+                setFilteredRestaurants(res); // Initialize filtered restaurants with all restaurants
             })
             .catch((err) => {
                 toast.error(err.message);
             });
     }, [token, router]);
+
+    useEffect(() => {
+        // Filter restaurants based on search term
+        const filtered = allrestaurants.filter((restaurant) =>
+            restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredRestaurants(filtered);
+    }, [searchTerm, allrestaurants]);
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+    };
 
     return (
         <div className="flex flex-col h-screen">
@@ -69,6 +84,8 @@ const Home: React.FC = () => {
                         type="text"
                         className="w-full"
                         placeholder="Search"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
                     />
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -84,10 +101,10 @@ const Home: React.FC = () => {
                 </label>
 
                 <p className="text-2xl font-extrabold my-4 ">
-                    Listes des restaurants
+                    Liste des restaurants
                 </p>
 
-                {allrestaurants.map((restaurant) => (
+                {filteredRestaurants.map((restaurant) => (
                     <RestaurantCard {...restaurant} key={restaurant.name} />
                 ))}
             </div>
