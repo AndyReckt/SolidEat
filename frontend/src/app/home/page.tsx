@@ -60,15 +60,15 @@ const Home: React.FC = () => {
             <Navbar />
             <div className="flex-grow flex flex-col justify-center items-center text-black bg-white tracking-widest">
                 <div className="card card-side bg-white">
-                    <figure>
+                    <div className="flex items-center justify-center w-20 h-20 rounded-full overflow-hidden mt-5 -mr-5">
                         <Image
                             src={avatar}
                             alt="Image"
                             className="max-w-full"
-                            width={64}
-                            height={64}
+                            width={80}
+                            height={80}
                         />
-                    </figure>
+                    </div>
                     <div className="card-body">
                         <p>Salut</p>
                         <p className="card-title">{name}</p>{" "}
