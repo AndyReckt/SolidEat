@@ -10,12 +10,12 @@ import { users as fetchUsers } from "./dashboard.server";
 const AdminDashboard = () => {
     const router = useRouter();
     const [users, setUsers] = useState<User[]>([]);
-    const user = JSON.parse(Cookies.get("user")) as MinimizedUser;
 
     useEffect(() => {
+        const user = JSON.parse(Cookies.get("user")) as MinimizedUser;
         const fetchAndSetUsers = async () => {
             if (user.role !== UserRole.Admin) {
-                router.push('/home');
+                router.push("/home");
             } else {
                 const res = await fetchUsers();
                 if (res.success) {
@@ -25,7 +25,7 @@ const AdminDashboard = () => {
         };
 
         fetchAndSetUsers();
-    }, [router, user]);
+    }, [router]);
 
     return (
         <div className="container mx-auto px-4 py-8">
