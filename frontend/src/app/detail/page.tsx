@@ -6,10 +6,11 @@ import {
     HeartIcon,
     ArrowUturnLeftIcon,
 } from "@heroicons/react/24/solid";
-import ReservationModal from "@/components/reservationmodal";
+
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Restaurant } from "@/_utils/_schemas";
+import ReservationModal from "@/components/reservationmodal";
 
 export default function RestaurantDetailPage() {
     let restaurant = Cookies.get("restaurant");
@@ -42,6 +43,9 @@ export default function RestaurantDetailPage() {
     const handleGoBack = () => {
         Cookies.remove("restaurant");
         router.push("/home");
+    };
+    const direction = () => {
+        router.push("/direction");
     };
 
     const handleLikeClick = () => {
@@ -92,16 +96,15 @@ export default function RestaurantDetailPage() {
                         </p>
                         <button onClick={handleLikeClick} className="ml-4">
                             <HeartIcon
-                                className={`w-6 h-6 ${
-                                    isLiked ? "text-red-500" : "text-gray-600"
-                                }`}
+                                className={`w-6 h-6 ${isLiked ? "text-red-500" : "text-gray-600"
+                                    }`}
                             />
                         </button>
                     </div>
 
                     {/*Bouton Direction envoyer vers la page Direction ? */}
                     <div className="text-center">
-                        <button className="btn btn-secondary bg-gray-500 hover:bg-gray-700 text-white mb-2 w-96">
+                        <button className="btn btn-secondary bg-gray-500 hover:bg-gray-700 text-white mb-2 w-96" onClick={direction}>
                             Direction
                         </button>
                     </div>
