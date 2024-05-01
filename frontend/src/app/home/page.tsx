@@ -45,7 +45,8 @@ const Home: React.FC = () => {
     useEffect(() => {
         // Filter restaurants based on search term
         const filtered = allrestaurants.filter((restaurant) =>
-            restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())
+            restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            restaurant.address.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredRestaurants(filtered);
     }, [searchTerm, allrestaurants]);
