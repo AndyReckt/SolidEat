@@ -9,7 +9,7 @@ import {
 
 import { useRouter } from "next/navigation";
 import { MinimizedUser, Restaurant, userToRestaurant } from "@/_utils/_schemas";
-import ReservationModal from "@/components/reservationmodal";
+import ReservationModal from "@/components/ReservationModal";
 
 export default function RestaurantDetailPage() {
     let token = Cookies.get("token");
@@ -111,8 +111,9 @@ export default function RestaurantDetailPage() {
                         </p>
                         <button onClick={handleLikeClick} className="ml-4">
                             <HeartIcon
-                                className={`w-6 h-6 ${isLiked ? "text-red-500" : "text-gray-600"
-                                    }`}
+                                className={`w-6 h-6 ${
+                                    isLiked ? "text-red-500" : "text-gray-600"
+                                }`}
                             />
                         </button>
                     </div>
@@ -140,15 +141,11 @@ export default function RestaurantDetailPage() {
             <div>
                 <textarea
                     placeholder="Add your comment..."
-                    className="w-96 h-24 border border-gray-300 rounded-md p-2 mt-4 mx-auto block resize-none focus:outline-none focus:ring-2 bg-gray-100 focus:ring-blue-500"
-                ></textarea>
-                <button
-                    className="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white w-96 text-center mt-2 mx-auto block"
-                >
+                    className="w-96 h-24 border border-gray-300 rounded-md p-2 mt-4 mx-auto block resize-none focus:outline-none focus:ring-2 bg-gray-100 focus:ring-blue-500"></textarea>
+                <button className="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white w-96 text-center mt-2 mx-auto block">
                     Add Comment
                 </button>
             </div>
         </div>
-
     );
 }
