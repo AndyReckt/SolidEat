@@ -4,7 +4,6 @@ import { Restaurant } from "@/_utils/_schemas";
 import Image from "next/image";
 const Cookies = require("js-cookie");
 import { useRouter } from "next/navigation";
-import { set } from "zod";
 
 export default function RestaurantCard(restaurant: Restaurant) {
     const router = useRouter();
@@ -19,8 +18,7 @@ export default function RestaurantCard(restaurant: Restaurant) {
             <div className="py-3">
                 <div
                     className="card card-side bg-white shadow-xl hover:bg-gray-200 transition-colors duration-300"
-                    onClick={reserved}
-                >
+                    onClick={reserved}>
                     <figure>
                         <Image src="" alt="" className="max-w-full" />
                     </figure>

@@ -13,11 +13,9 @@ const Navbar = () => {
     }, [token, router]);
 
     const logout = () => {
+        Cookies.remove("token");
+        Cookies.remove("user");
         router.push("/");
-        setTimeout(() => {
-            Cookies.remove("token");
-            Cookies.remove("user");
-        }, 250);
     };
     return (
         <div className="navbar bg-white justify-end px-2">
