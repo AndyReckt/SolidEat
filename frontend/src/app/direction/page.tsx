@@ -14,7 +14,7 @@ import { set } from "zod";
 declare var google: any;
 
 const containerStyle = {
-    width: "400px",
+    width: "800px",
     height: "400px",
 };
 
@@ -114,7 +114,7 @@ export default function RestaurantDetailPage() {
     //         // do something
     //     });
 
-    useCallback(() => {}, []);
+    useCallback(() => { }, []);
 
     return (
         <div className="bg-gray-100 min-h-screen relative">
