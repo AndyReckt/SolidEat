@@ -9,7 +9,7 @@ import {
 
 import { useRouter } from "next/navigation";
 import { MinimizedUser, Restaurant, userToRestaurant } from "@/_utils/_schemas";
-import ReservationModal from "@/components/ReservationModal";
+import ReservationModal from "@/components/reservationmodal";
 
 export default function RestaurantDetailPage() {
     let token = Cookies.get("token");
@@ -111,9 +111,8 @@ export default function RestaurantDetailPage() {
                         </p>
                         <button onClick={handleLikeClick} className="ml-4">
                             <HeartIcon
-                                className={`w-6 h-6 ${
-                                    isLiked ? "text-red-500" : "text-gray-600"
-                                }`}
+                                className={`w-6 h-6 ${isLiked ? "text-red-500" : "text-gray-600"
+                                    }`}
                             />
                         </button>
                     </div>
