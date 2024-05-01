@@ -13,6 +13,12 @@ export const MinimizedUserSchema = z.object({
     email: z.string().email(),
 });
 
+export interface Map<T> {
+    [key: string]: T;
+}
+
+export let userToRestaurant: Map<Restaurant> = {};
+
 export type MinimizedUser = z.infer<typeof MinimizedUserSchema>;
 
 export const LocationSchema = z.object({

@@ -10,6 +10,7 @@ export default function RestaurantCard(restaurant: Restaurant) {
     const router = useRouter();
     const reserved = () => {
         Cookies.set("restaurant", JSON.stringify(restaurant));
+
         router.push("/detail");
     };
 
