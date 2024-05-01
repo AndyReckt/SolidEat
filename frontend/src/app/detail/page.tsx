@@ -12,6 +12,7 @@ import Image from "next/image";
 import { Restaurant } from "@/_utils/_schemas";
 import ReservationModal from "@/components/reservationmodal";
 
+
 export default function RestaurantDetailPage() {
     let restaurant = Cookies.get("restaurant");
     restaurant = JSON.parse(restaurant) as Restaurant;
