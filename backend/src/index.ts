@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import { Client as GoogleMapsClient } from "@googlemaps/google-maps-services-js";
 
 import * as mongo from "./database/mongo";
 import * as restaurants from "./routes/restaurants";
@@ -12,7 +13,13 @@ const portEnv = process.env.PORT;
 const hostEnv = process.env.HOST;
 const mongo_uri = process.env.MONGO_URI;
 
-if (!portEnv || !hostEnv || !mongo_uri || !process.env.JWT_SECRET) {
+if (
+    !portEnv ||
+    !hostEnv ||
+    !mongo_uri ||
+    !process.env.JWT_SECRET ||
+    !process.env.GOOGLE_MAPS_API_KEY
+) {
     console.error("setup .env");
     process.exit(-1);
 }
@@ -32,6 +39,8 @@ mongo
         console.error(err);
         process.exit(-1);
     });
+
+export const maps = new GoogleMapsClient({});
 
 const app: Express = express();
 app.use(cors({ origin: "*" }));

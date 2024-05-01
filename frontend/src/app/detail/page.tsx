@@ -9,8 +9,15 @@ import {
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Restaurant } from "@/_utils/_schemas";
+import { MinimizedUser, Restaurant, userToRestaurant } from "@/_utils/_schemas";
+import { distance } from "./detail.server";
+import { toast } from "react-toastify";
+import {
+    getUserDirections,
+    setUserDirections,
+} from "@/_utils/_directionshelper";
 import ReservationModal from "@/components/reservationmodal";
+
 
 export default function RestaurantDetailPage() {
     let restaurant = Cookies.get("restaurant");
@@ -18,9 +25,23 @@ export default function RestaurantDetailPage() {
     const [restaurantImage, setRestaurantImage] = useState<string>("");
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [isLiked, setIsLiked] = useState<boolean>(false);
+    const [location, setLocation] = useState<{
+        latitude: number;
+        longitude: number;
+    } | null>(null);
 
     useEffect(() => {
         fetchRandomImage();
+    }, []);
+
+    useEffect(() => {
+        if (navigator.geolocation) {
+            // Retrieve latitude & longitude coordinates from `navigator.geolocation` Web API
+            navigator.geolocation.getCurrentPosition(({ coords }) => {
+                const { latitude, longitude } = coords;
+                setLocation({ latitude, longitude });
+            });
+        }
     }, []);
 
     const fetchRandomImage = async () => {
@@ -41,11 +62,44 @@ export default function RestaurantDetailPage() {
     const router = useRouter();
 
     const handleGoBack = () => {
+        delete userToRestaurant[
+            (JSON.parse(Cookies.get("user")) as MinimizedUser).username
+        ];
         Cookies.remove("restaurant");
         router.push("/home");
     };
-    const direction = () => {
-        router.push("/direction");
+
+    const handleDirectionClick = () => {
+        const user = JSON.parse(Cookies.get("user")) as MinimizedUser;
+        toast.info("Direction en cours de calcul");
+        setTimeout(() => {
+            if (Cookies.get("steps")) {
+                throw new Error(getUserDirections(user.username));
+                toast.success(Cookies.get("steps"));
+            }
+        }, 1000);
+        if (location) {
+            distance(restaurant, location)
+                .then((res) => {
+                    if (res.success) {
+                        // const steps = res.data.routes[0].legs[0].steps.map(
+                        //     (step: any) => step.html_instructions
+                        // );
+
+                        const steps = res.data.routes[0];
+
+                        Cookies.set("steps", user.username);
+                        setUserDirections(user.username, JSON.stringify(steps));
+
+                        router.push("/direction");
+                    } else {
+                        console.error(res.error);
+                    }
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        }
     };
 
     const handleLikeClick = () => {
@@ -96,15 +150,18 @@ export default function RestaurantDetailPage() {
                         </p>
                         <button onClick={handleLikeClick} className="ml-4">
                             <HeartIcon
-                                className={`w-6 h-6 ${isLiked ? "text-red-500" : "text-gray-600"
-                                    }`}
+                                className={`w-6 h-6 ${
+                                    isLiked ? "text-red-500" : "text-gray-600"
+                                }`}
                             />
                         </button>
                     </div>
 
                     {/*Bouton Direction envoyer vers la page Direction ? */}
                     <div className="text-center">
-                        <button className="btn btn-secondary bg-gray-500 hover:bg-gray-700 text-white mb-2 w-96" onClick={direction}>
+                        <button
+                            onClick={handleDirectionClick}
+                            className="btn btn-secondary bg-gray-500 hover:bg-gray-700 text-white mb-2 w-96">
                             Direction
                         </button>
                     </div>
