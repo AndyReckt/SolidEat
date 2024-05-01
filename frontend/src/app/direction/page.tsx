@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Restaurant } from "@/_utils/_schemas";
 
-export default function RestaurantDetailPage() {
+export default function RestaurantDirectionPage() {
     let restaurant = Cookies.get("restaurant");
     restaurant = JSON.parse(restaurant) as Restaurant;
 

@@ -36,4 +36,15 @@ export const RestaurantSchema = z.object({
     type: z.nativeEnum(RestaurantType),
 });
 
+export const UserZSchema = z.object({
+    username: z.string(),
+    email: z.string().email(),
+    password: z.string(),
+    name: z.string(),
+    role: z.nativeEnum(UserRole),
+});
+
 export type Restaurant = z.infer<typeof RestaurantSchema>;
+export type User = z.infer<typeof UserZSchema>;
+
+
