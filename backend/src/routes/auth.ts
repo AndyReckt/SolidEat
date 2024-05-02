@@ -132,7 +132,11 @@ export function configure(app: Express) {
                     email: data.email,
                     username: data.username,
                     password: data.password,
-                    role: data.usertype, //todo: to change using a dropdown menu in the frontend
+                    role: UserRole.User,
+                    restriction: {
+                        comment: false,
+                        review: false,
+                    },
                 });
 
                 await user.save();

@@ -6,10 +6,11 @@ import {
     HeartIcon,
     ArrowUturnLeftIcon,
 } from "@heroicons/react/24/solid";
-
+import { addreview as newreview } from "./detail.server";
 import { useRouter } from "next/navigation";
-import { MinimizedUser, Restaurant, userToRestaurant } from "@/_utils/_schemas";
+import { MinimizedUser, Restaurant, userToRestaurant, Review, ReviewSchema } from "@/_utils/_schemas";
 import ReservationModal from "@/components/ReservationModal";
+import Listreview from "@/components/listreview";
 
 export default function RestaurantDetailPage() {
     let token = Cookies.get("token");
@@ -19,6 +20,17 @@ export default function RestaurantDetailPage() {
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<boolean>(false);
     const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
+    const [reviews, setListreview] = useState<Review[]>([]);
+    const [formData, setFormData] = useState<{
+        name: string;
+        review: Review;
+    }>({
+        name: "",
+        review: {
+            username: "",
+            review: ""
+        }
+    });
 
     useEffect(() => {
         if (!token) {
@@ -27,9 +39,26 @@ export default function RestaurantDetailPage() {
         }
 
         fetchRandomImage();
-        setRestaurant(JSON.parse(Cookies.get("restaurant")));
+        let res = JSON.parse(Cookies.get("restaurant")) as Restaurant;
+        setRestaurant(res);
+        setListreview(res.reviews);
         setLoaded(true);
     }, [token, router]);
+
+    const addreview = async (e: any) => {
+        e.preventDefault();
+
+        setFormData({
+            ...formData,
+            name: restaurant!.name,
+            review: {
+                ...formData.review,
+                username: (JSON.parse(Cookies.get("user")) as MinimizedUser).username,
+            }
+        });
+
+        const res = await newreview(formData);
+    };
 
     const fetchRandomImage = async () => {
         try {
@@ -47,6 +76,7 @@ export default function RestaurantDetailPage() {
         }
     };
 
+
     const handleGoBack = () => {
         delete userToRestaurant[
             (JSON.parse(Cookies.get("user")) as MinimizedUser).username
@@ -54,6 +84,8 @@ export default function RestaurantDetailPage() {
         Cookies.remove("restaurant");
         router.push("/home");
     };
+
+
 
     const handleDirectionClick = () => {
         router.push("/direction");
@@ -111,9 +143,8 @@ export default function RestaurantDetailPage() {
                         </p>
                         <button onClick={handleLikeClick} className="ml-4">
                             <HeartIcon
-                                className={`w-6 h-6 ${
-                                    isLiked ? "text-red-500" : "text-gray-600"
-                                }`}
+                                className={`w-6 h-6 ${isLiked ? "text-red-500" : "text-gray-600"
+                                    }`}
                             />
                         </button>
                     </div>
@@ -138,17 +169,40 @@ export default function RestaurantDetailPage() {
                 </div>
             </div>
             {isModalOpen && <ReservationModal onClose={handleCloseModal} />}
-            <div>
+            <form onSubmit={addreview} action="#">
+                <label
+                    htmlFor="review"
+                    className="block mb-2 text-sm font-medium text-gray-950">
+                </label>
                 <textarea
+                    onChange={(e) =>
+                        setFormData({
+                            ...formData,
+
+                            review: {
+                                ...formData.review,
+                                review: e.target.value,
+                            }
+                        })
+                    }
+                    name="review"
+                    id="review"
                     placeholder="Add your comment..."
                     className="w-96 h-24 border border-gray-300 rounded-md p-2 mt-4 mx-auto block resize-none focus:outline-none focus:ring-2 bg-gray-100 focus:ring-blue-500 text-black"
+                    required={true}
                 ></textarea>
                 <button
-                    className="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white w-96 text-center mt-2 mx-auto block"
-                >
+                    type="submit"
+                    className="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white w-96 text-center mt-2 mx-auto block">
                     Add Comment
                 </button>
+            </form>
+            <div className="flex-grow flex flex-col justify-center items-center text-black bg-white tracking-widest">
+                {reviews.map((review: Review) => (
+                    <Listreview key={review.username} {...review} />
+                ))}
             </div>
         </div>
     );
 }
+
