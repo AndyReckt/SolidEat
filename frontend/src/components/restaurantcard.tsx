@@ -29,7 +29,7 @@ export default function RestaurantCard(restaurant: Restaurant) {
                         {/* Récupérer l'adresse du restaurant */}
                         <p>Horaires d'ouverture</p>{" "}
                         {/* Récupérer les horaires d'ouverture */}
-                        <p>Nombre de place réservé sur x</p>{" "}
+                        <p>Nombre de place max: {restaurant.seats}</p>{" "}
                         {/* Récupérer le nombre de place réservé */}
                     </div>
                 </div>

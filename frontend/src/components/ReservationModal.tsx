@@ -1,35 +1,37 @@
 /* eslint-disable react/no-unescaped-entities */
+import { MinimizedUser, Reservation, Restaurant } from "@/_utils/_schemas";
 import React from "react";
 
 interface ReservationModalProps {
     onClose: () => void;
-    onSubmit?: (reservationInfo: ReservationInfo) => void;
-}
-
-interface ReservationInfo {
-    email: string;
-    date: string;
-    time: string;
-    guests: number;
+    onSubmit?: (reservationInfo: Reservation) => void;
+    restaurant: Restaurant;
+    user: MinimizedUser;
 }
 
 const ReservationModal: React.FC<ReservationModalProps> = ({
     onClose,
     onSubmit,
+    restaurant,
+    user,
 }: ReservationModalProps) => {
-    const [reservationInfo, setReservationInfo] =
-        React.useState<ReservationInfo>({
-            email: "",
-            date: "",
-            time: "",
-            guests: 1,
-        });
+    const [reservationInfo, setReservationInfo] = React.useState<Reservation>({
+        restaurant: "",
+        username: "",
+        date: "",
+        time: "",
+        people: 1,
+    });
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (onSubmit) {
-            onSubmit(reservationInfo);
+            onSubmit({
+                ...reservationInfo,
+                restaurant: restaurant.name,
+                username: user.username,
+            });
         }
 
         onClose();
@@ -39,7 +41,7 @@ const ReservationModal: React.FC<ReservationModalProps> = ({
     ) => {
         const { name, value } = e.target;
         const newValue =
-            name === "guests" ? Math.max(1, parseInt(value) || 1) : value;
+            name == "guests" ? Math.max(1, parseInt(value) || 1) : value;
         setReservationInfo((prevState) => ({
             ...prevState,
             [name]: newValue,
@@ -60,21 +62,6 @@ const ReservationModal: React.FC<ReservationModalProps> = ({
                     {/*Formulaire de réservation */}
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 gap-4">
-                            <label
-                                htmlFor="email"
-                                className="block text-sm font-medium text-gray-700">
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={reservationInfo.email}
-                                onChange={handleInputChange}
-                                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300"
-                                required
-                            />
-
                             <label
                                 htmlFor="date"
                                 className="block text-sm font-medium text-gray-700">
@@ -114,7 +101,7 @@ const ReservationModal: React.FC<ReservationModalProps> = ({
                                 type="number"
                                 id="guests"
                                 name="guests"
-                                value={reservationInfo.guests}
+                                value={reservationInfo.people}
                                 onChange={handleInputChange}
                                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 shadow-sm sm:text-sm border-gray-300 rounded-md bg-red-300"
                                 required
